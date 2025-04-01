@@ -43,7 +43,7 @@
 *(即将上线)*
 
 ### 方法二：开发者模式安装
-1. 下载本项目的[最新版本](https://github.com/yourusername/chrome-web-clipper/releases)
+1. 下载本项目的[最新版本](https://github.com/cesionnn/chrome-web-clipper)
 2. 解压下载的文件到本地文件夹
 3. 打开Chrome浏览器，进入扩展程序页面：`chrome://extensions/`
 4. 开启右上角"开发者模式"开关
@@ -119,9 +119,9 @@
 
 ## 🔗 相关链接
 
-- [项目主页](https://github.com/yourusername/chrome-web-clipper)
-- [问题反馈](https://github.com/yourusername/chrome-web-clipper/issues)
-- [更新日志](https://github.com/yourusername/chrome-web-clipper/blob/main/CHANGELOG.md)
+- [项目主页](https://github.com/cesionnn/chrome-web-clipper)
+- [问题反馈](https://github.com/cesionnn/chrome-web-clipper/issues)
+- [更新日志](https://github.com/cesionnn/chrome-web-clipper/docs/CHANGELOG.md)
 
 ## 📜 许可证
 
