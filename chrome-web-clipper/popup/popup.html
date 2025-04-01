@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>网页内容抓取器</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>网页内容抓取器</h1>
+    
+    <div class="control-panel">
+      <div class="select-group">
+        <label for="format">导出格式:</label>
+        <select id="format">
+          <option value="html" selected>HTML</option>
+          <option value="markdown">Markdown</option>
+          <option value="text">纯文本</option>
+        </select>
+      </div>
+      
+      <div class="select-group">
+        <label for="content-type">内容范围:</label>
+        <select id="content-type">
+          <option value="auto" selected>自动识别主内容</option>
+          <option value="full">整个页面</option>
+          <option value="selection">当前选中内容</option>
+        </select>
+      </div>
+      
+      <!-- 设置选项标签页 -->
+      <div class="tabs-container">
+        <div class="tabs">
+          <button class="tab-button active" data-tab="css-options">样式</button>
+          <button class="tab-button" data-tab="media-options">媒体</button>
+          <button class="tab-button" data-tab="content-options">内容</button>
+          <button class="tab-button" data-tab="export-options">导出</button>
+        </div>
+        
+        <!-- 样式选项面板 -->
+        <div id="css-options" class="tab-panel active">
+          <div class="option-group">
+            <h3>CSS样式过滤:</h3>
+            <div class="css-checkbox-group">
+              <div class="css-option">
+                <input type="checkbox" id="include-inline-styles" checked>
+                <label for="include-inline-styles">包含内联样式</label>
+              </div>
+              <div class="css-option">
+                <input type="checkbox" id="include-external-styles" checked>
+                <label for="include-external-styles">包含外部样式表</label>
+              </div>
+              <div class="css-option">
+                <input type="checkbox" id="include-images-styles" checked>
+                <label for="include-images-styles">保留图片样式</label>
+              </div>
+              <div class="css-option">
+                <input type="checkbox" id="include-layout-styles" checked>
+                <label for="include-layout-styles">保留布局样式</label>
+              </div>
+              <div class="css-option">
+                <input type="checkbox" id="include-font-styles" checked>
+                <label for="include-font-styles">保留字体样式</label>
+              </div>
+              <div class="css-option">
+                <input type="checkbox" id="include-color-styles" checked>
+                <label for="include-color-styles">保留颜色样式</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 媒体选项面板 -->
+        <div id="media-options" class="tab-panel">
+          <div class="option-group">
+            <h3>媒体内容选项:</h3>
+            <div class="checkbox-group">
+              <div class="option">
+                <input type="checkbox" id="include-images" checked>
+                <label for="include-images">保留图片内容</label>
+              </div>
+              <div class="option">
+                <input type="checkbox" id="include-audio-video" checked>
+                <label for="include-audio-video">保留音频/视频</label>
+              </div>
+              <div class="option">
+                <input type="checkbox" id="include-iframes" checked>
+                <label for="include-iframes">保留iframe内容</label>
+              </div>
+              <div class="option">
+                <input type="checkbox" id="convert-images-data-uri">
+                <label for="convert-images-data-uri">图片转为Data URI</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 内容选项面板 -->
+        <div id="content-options" class="tab-panel">
+          <div class="option-group">
+            <h3>内容清理选项:</h3>
+            <div class="checkbox-group">
+              <div class="option">
+                <input type="checkbox" id="remove-scripts" checked>
+                <label for="remove-scripts">移除JavaScript脚本</label>
+              </div>
+              <div class="option">
+                <input type="checkbox" id="remove-forms">
+                <label for="remove-forms">移除表单元素</label>
+              </div>
+              <div class="option">
+                <input type="checkbox" id="remove-hidden-elements">
+                <label for="remove-hidden-elements">移除隐藏元素</label>
+              </div>
+              <div class="option">
+                <input type="checkbox" id="remove-ads" checked>
+                <label for="remove-ads">移除广告和评论</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 导出选项面板 -->
+        <div id="export-options" class="tab-panel">
+          <div class="option-group">
+            <h3>文件导出选项:</h3>
+            <div class="checkbox-group">
+              <div class="option">
+                <input type="checkbox" id="add-timestamp">
+                <label for="add-timestamp">添加时间戳到文件名</label>
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="file-prefix">文件名前缀:</label>
+              <input type="text" id="file-prefix" placeholder="可选前缀">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="button-container">
+      <button id="clip-button" class="primary-button">抓取当前页面</button>
+      
+      <!-- 进度条容器 -->
+      <div id="progress-container" class="progress-container" style="display: none;">
+        <div class="progress-bar">
+          <div id="progress-inner" class="progress-inner"></div>
+        </div>
+        <div id="progress-text" class="progress-text">0%</div>
+      </div>
+      
+      <div class="status" id="status-message"></div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 
